@@ -1,7 +1,7 @@
 const core = require('@actions/core');
 const exec = require('@actions/exec');
 const aws = require('aws-sdk');
-
+<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 function replaceSpecialCharacters(registryUri) {
   return registryUri.replace(/[^a-zA-Z0-9_]+/g, '_')
 }
