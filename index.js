@@ -35,6 +35,7 @@ async function run() {
       const authToken = Buffer.from(authData.authorizationToken, 'base64').toString('utf-8');
       const creds = authToken.split(':', 2);
       const proxyEndpoint = authData.proxyEndpoint.replace(/^https?:\/\//,'');
+      core.info(proxyEndpoint)
       const registryUri = proxyEndpoint
 
       if (authTokenResponse.authorizationData.length == 1) {
