@@ -35,7 +35,6 @@ async function run() {
       const authToken = Buffer.from(authData.authorizationToken, 'base64').toString('utf-8');
       const creds = authToken.split(':', 2);
       const proxyEndpoint = authData.proxyEndpoint.replace(/^https?:\/\//,'');
-      core.info(proxyEndpoint)
       const registryUri = proxyEndpoint
 
       if (authTokenResponse.authorizationData.length == 1) {
@@ -51,10 +50,10 @@ async function run() {
         ignoreReturnCode: true,
         listeners: {
           stdout: (data) => {
-            doLoginStdout += data.toString();
+            doLoginStdout += data.toString() + " " +  proxyEndpoint;
           },
           stderr: (data) => {
-            doLoginStderr += data.toString();
+            doLoginStderr += data.toString() + " " + proxyEndpoint;
           }
         }
       });
