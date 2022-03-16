@@ -60,7 +60,7 @@ async function run() {
 
       if (exitCode != 0) {
         core.debug(doLoginStdout);
-        throw new Error('Could not login: ' + doLoginStderr);
+        throw new Error('Cannot login: ' + doLoginStderr + " - " + proxyEndpoint);
       }
 
       const secretSuffix = replaceSpecialCharacters(registryUri)
